@@ -25,14 +25,19 @@ def select_all_tasks(conn):
         post_to_mastodon(row)
 
 def post_to_mastodon(row):
-    print(row)
-    print(row[0])
-    print(row[3] + " -- " + row[4])
-    # mastodon = Mastodon(
-    #     access_token = 'pytooter_usercred.secret',
-    #     api_base_url = config['API_BASE_URL']
-    # )
-    # mastodon.toot('Tooting from python using #mastodonpy!')
+    # print(row)
+    # print(row[0])
+    # print(row[3] + " -- " + row[4])
+    mastodon = Mastodon(
+        access_token = config['ACCESS_TOKEN'],
+        api_base_url = config['API_BASE_URL']
+    )
+    # mastodon.toot(
+    mastodon.status_post(
+        spoiler_text=row[0], 
+        status=row[3] + " -- " + row[4] + ' #hsk #mandarin #chinese #study',
+        language="zh"
+    )
 
 def main():
     database = r"zh.db"
