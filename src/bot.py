@@ -7,7 +7,7 @@ from sqlite3 import Error
 load_dotenv()
 config = dotenv_values(".env")
 
-print(config['API_BASE_URL'])
+# print(config['API_BASE_URL'])
 
 def create_connection(db_file):
     conn = None
