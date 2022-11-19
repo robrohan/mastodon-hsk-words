@@ -25,9 +25,6 @@ def select_all_tasks(conn):
         post_to_mastodon(row)
 
 def post_to_mastodon(row):
-    # print(row)
-    # print(row[0])
-    # print(row[3] + " -- " + row[4])
     mastodon = Mastodon(
         access_token = config['ACCESS_TOKEN'],
         api_base_url = config['API_BASE_URL']
