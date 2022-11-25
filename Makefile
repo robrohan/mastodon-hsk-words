@@ -10,5 +10,14 @@ docker_build:
 	@docker image build . -t mastodon_zh_bot
 
 docker_run:
-#  -p 10000:10000
-	@docker container run --rm -t mastodon_zh_bot:latest
+	@docker container run --rm \
+		-v $(PWD)/.env:/home/user/.env \
+		-t mastodon_zh_bot:latest
+
+docker_run_video:
+	@docker container run --rm \
+		-v $(PWD)/.env:/home/user/.env \
+		-v $(PWD)/audio:/home/user/audio \
+		-v $(PWD)/image:/home/user/image \
+		-v $(PWD)/video:/home/user/video \
+		-t mastodon_zh_bot:latest video

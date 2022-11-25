@@ -14,6 +14,14 @@ import time
 load_dotenv()
 config = dotenv_values(".env")
 
+def download_models():
+    StableDiffusion( 
+        img_height=512,
+        img_width=512,
+        jit_compile=False,
+        download_weights=True,
+    )
+
 def create_connection(db_file):
     conn = None
     try:
@@ -57,8 +65,7 @@ def do_image(hash, en_text, extra):
     generator = StableDiffusion( 
         img_height=384,
         img_width=384,
-        jit_compile=False,
-        download_weights=True,
+        jit_compile=True
     )
     img = generator.generate(
         f"{en_text} {extra}",
@@ -126,7 +133,13 @@ def main():
     with conn:
         c_rows = select_char(conn)
 
-        if len(sys.argv) == 2:
+        if len(sys.argv) == 2 and sys.argv[1] == "init":
+            print("Downloading stable diffusion models...")
+            download_models()
+            print("Done")
+            exit()
+
+        if len(sys.argv) == 2 and sys.argv[1] == "video":
             # Pick a random artist
             artists = []
             with open("data/artists.txt") as f:
@@ -149,7 +162,7 @@ def main():
             print(video, audio, image)
 
 
-        if len(sys.argv) == 2:
+        if len(sys.argv) == 2 and sys.argv[1] == "video":
             post_video_to_mastodon(c_rows[0], video)
         else:
             post_to_mastodon(c_rows[0])

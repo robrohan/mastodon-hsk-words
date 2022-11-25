@@ -4,8 +4,8 @@ python-dotenv
 zhtts
 ##
 # git+https://github.com/fchollet/stable-diffusion-tensorflow
-# git+https://github.com/robrohan/stable-diffusion-tensorflow
-/home/rob/Projects/home-lab/stable-diffusion-tensorflow
+git+https://github.com/robrohan/stable-diffusion-tensorflow
+# /home/rob/Projects/home-lab/stable-diffusion-tensorflow
 tensorflow==2.9.0
 h5py==3.7.0
 Pillow==9.2.0
