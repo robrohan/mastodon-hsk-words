@@ -77,7 +77,6 @@ def do_video(hash, audio, image, caption):
     font = os.path.abspath("./data/NotoSansSC-Regular.otf")
     # font = "Arial.ttf"
 
-    # ffmpeg -ss 20 -i  D:\21-03-2018\15271618235b06a3df9d5cb.mp4 
     ffmpeg = f"ffmpeg -y -loop 1 -i {image} -i {audio} "
     ffmpeg += f""" -filter_complex "[0:v]pad=iw:ih+50:0:50:color=white, drawtext=text='{caption}':fix_bounds=true:fontfile={font}:fontsize=12:fontcolor=black:x=(w-tw)/2:y=(50-th)/2" """
     ffmpeg += f" -c:v libx264 -tune stillimage -c:a aac -b:a 192k -pix_fmt yuv420p -shortest ./video/{hash}.mp4"
