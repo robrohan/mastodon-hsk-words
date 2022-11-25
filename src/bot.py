@@ -4,7 +4,7 @@ from dotenv import load_dotenv, dotenv_values
 from sqlite3 import Error
 from stable_diffusion_tf.stable_diffusion import StableDiffusion
 from PIL import Image
-import os
+import os, sys
 import zhtts
 import hashlib
 import random
@@ -42,12 +42,12 @@ def select_example_sentences(conn, zh_char):
 
 def do_tts(hash, zh_text):
     f = f"./audio/{hash}.wav"
-    if  not os.path.exists(os.path.abspath(f)):
+    # if  not os.path.exists(os.path.abspath(f)):
         # tts = zhtts.TTS(text2mel_name="FASTSPEECH2")
-        tts = zhtts.TTS(text2mel_name="TACOTRON")
-        tts.text2wav(zh_text, os.path.abspath(f))
-        tts.frontend(zh_text)
-        tts.synthesis(zh_text)
+    tts = zhtts.TTS(text2mel_name="TACOTRON")
+    tts.text2wav(zh_text, os.path.abspath(f))
+    tts.frontend(zh_text)
+    tts.synthesis(zh_text)
 
     return os.path.abspath(f)
 
@@ -73,7 +73,6 @@ def do_image(hash, en_text, extra):
     return os.path.abspath(filename)
 
 def do_video(hash, audio, image, caption):
-
     font = os.path.abspath("./data/NotoSansSC-Regular.otf")
     # font = "Arial.ttf"
 
@@ -114,7 +113,7 @@ def post_video_to_mastodon(c_row, video):
 
     mastodon.status_post(
         spoiler_text=c_row[0],
-        status=c_row[3] + " -- " + c_row[4] + ' #hsk #mandarin #chinese #study #ml #stablediffusion #zhtts',
+        status=c_row[3] + " -- " + c_row[4] + ' #hsk #mandarin #chinese #study #ml #stablediffusion #tensorflow #tts',
         media_ids=[media_dict],
         language="zh",
     )
@@ -122,31 +121,38 @@ def post_video_to_mastodon(c_row, video):
 def main():
     database = r"zh.db"
     conn = create_connection(database)
+    # print(len(sys.argv))
 
-    # Pick a random artist
-    artists = []
-    with open("data/artists.txt") as f:
-        artists = f.read().splitlines() 
-    rand = round(len(artists) * random.random())
-    print(artists[rand])
-    
     with conn:
         c_rows = select_char(conn)
-        s_rows = select_example_sentences(conn, c_rows[0])
-        
-        hash_object = hashlib.md5( str(c_rows[0][0]).encode('utf-8') )
-        h = hash_object.hexdigest()
-        print("Study word: " + c_rows[0][0] + " hash: " + h)
 
-        audio = do_tts(h, s_rows[0][0])
-        image = do_image(h, s_rows[0][2], c_rows[0][4] + f" {artists[rand]}, unreal engine, artstation")
-        
-        caption = s_rows[0][0]
-        video = do_video(h, audio, image, caption)
-        print(video, audio, image)
+        if len(sys.argv) == 2:
+            # Pick a random artist
+            artists = []
+            with open("data/artists.txt") as f:
+                artists = f.read().splitlines() 
+            rand = round(len(artists) * random.random())
+            print(artists[rand])
 
-        # post_video_to_mastodon(c_rows[0], video)
-        # post_to_mastodon(c_rows[0])
+            s_rows = select_example_sentences(conn, c_rows[0])
+            
+            hash_object = hashlib.md5( str(c_rows[0][0]).encode('utf-8') )
+            h = hash_object.hexdigest()
+            print("Study word: " + c_rows[0][0] + " hash: " + h)
+            print("Sentence: " + s_rows[0][0] + " En: " + s_rows[0][2])
+
+            audio = do_tts(h, s_rows[0][0])
+            image = do_image(h, s_rows[0][2], c_rows[0][4] + f" {artists[rand]}, unreal engine, artstation")
+            
+            caption = s_rows[0][0]
+            video = do_video(h, audio, image, caption)
+            print(video, audio, image)
+
+
+        if len(sys.argv) == 2:
+            post_video_to_mastodon(c_rows[0], video)
+        else:
+            post_to_mastodon(c_rows[0])
 
 
 if __name__=="__main__":
