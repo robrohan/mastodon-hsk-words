@@ -4,3 +4,5 @@ This bot is used to toot words from the [HSK](https://en.wikipedia.org/wiki/Hany
 
 https://pypi.org/project/zhtts/
 
+https://github.com/Destaq/chinese-sentence-miner
+
