@@ -8,12 +8,11 @@ import os
 import zhtts
 import hashlib
 import random
+import time
 
 # take environment variables from .env.
 load_dotenv()
 config = dotenv_values(".env")
-
-# print(config['API_BASE_URL'])
 
 def create_connection(db_file):
     conn = None
@@ -75,8 +74,9 @@ def do_image(hash, en_text, extra):
 
 def do_video(hash, audio, image):
     os.system(f"ffmpeg -y -loop 1 -i {image} -i {audio} -c:v libx264 -tune stillimage -c:a aac -b:a 192k -pix_fmt yuv420p -shortest ./video/{hash}.mp4")
+    return os.path.abspath(f"./video/{hash}.mp4")
 
-def post_to_mastodon(c_row, s_row, audio, image):
+def post_to_mastodon(c_row):
     mastodon = Mastodon(
         access_token = config['ACCESS_TOKEN'],
         api_base_url = config['API_BASE_URL']
@@ -89,15 +89,33 @@ def post_to_mastodon(c_row, s_row, audio, image):
         language="zh"
     )
 
+def post_video_to_mastodon(c_row, video):
+    mastodon = Mastodon(
+        access_token = config['ACCESS_TOKEN'],
+        api_base_url = config['API_BASE_URL']
+    )
+
+    # Returns a media dict. This contains the id that can be used in status_post to attach the media file to a toot.
+    media_dict = mastodon.media_post(
+        mime_type="video/mp4",
+        media_file=video,
+    )
+
+    print(media_dict)
+    time.sleep(5.5)
+
+    mastodon.status_post(
+        spoiler_text=c_row[0],
+        status=c_row[3] + " -- " + c_row[4] + ' #hsk #mandarin #chinese #study #ml #stablediffusion #zhtts',
+        media_ids=[media_dict],
+        language="zh",
+    )
+
 def main():
     database = r"zh.db"
     conn = create_connection(database)
 
     # Pick a random artist
-    # f = open("data/artists.txt", "r")
-    # artists = f.readlines()
-    # f.close()
-
     artists = []
     with open("data/artists.txt") as f:
         artists = f.read().splitlines() 
@@ -115,10 +133,11 @@ def main():
         audio = do_tts(h, s_rows[0][0])
         image = do_image(h, s_rows[0][2], c_rows[0][4] + f" {artists[rand]} artstation")
         
-        do_video(h, audio, image)
-        print(f"./video/{h}.mp4", audio, image)
+        video = do_video(h, audio, image)
+        print(video, audio, image)
 
-        # post_to_mastodon(c_rows, s_rows, audio, image)
+        post_video_to_mastodon(c_rows[0], video)
+        # post_to_mastodon(c_rows[0])
 
 
 if __name__=="__main__":
