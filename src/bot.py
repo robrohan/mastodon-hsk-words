@@ -2,11 +2,12 @@ import sqlite3
 from mastodon import Mastodon
 from dotenv import load_dotenv, dotenv_values
 from sqlite3 import Error
+from stable_diffusion_tf.stable_diffusion import StableDiffusion
+from PIL import Image
 import os
 import zhtts
 import hashlib
-from stable_diffusion_tf.stable_diffusion import StableDiffusion
-from PIL import Image
+import random
 
 # take environment variables from .env.
 load_dotenv()
@@ -34,17 +35,14 @@ def select_example_sentences(conn, zh_char):
         SELECT Characters, Pinyin, Meaning 
         FROM sentences 
         WHERE Characters LIKE '%{zh_char[0]}%' 
-        ORDER BY HSKAverage ASC, CustomRatio ASC 
-        LIMIT 10
+        ORDER BY RANDOM()
+        LIMIT 1
     """)
     rows = cur.fetchall()
     return rows
 
-def do_tts(zh_text):
-    hash_object = hashlib.md5( str(zh_text).encode('utf-8') )
-    h = hash_object.hexdigest()
-    f = "./audio/"+h+".wav"
-
+def do_tts(hash, zh_text):
+    f = f"./audio/{hash}.wav"
     if  not os.path.exists(os.path.abspath(f)):
         tts = zhtts.TTS(text2mel_name="FASTSPEECH2")
         tts = zhtts.TTS()
@@ -52,11 +50,10 @@ def do_tts(zh_text):
         tts.frontend(zh_text)
         tts.synthesis(zh_text)
 
-    return (os.path.abspath(f), h)
+    return os.path.abspath(f)
 
-def do_image(en_text):
-    hash_object = hashlib.md5( str(en_text).encode('utf-8') )
-    h = hash_object.hexdigest()
+def do_image(hash, en_text, extra):
+    print(f"prompt ------> {en_text} {extra}")
 
     generator = StableDiffusion( 
         img_height=384,
@@ -65,18 +62,18 @@ def do_image(en_text):
         download_weights=True,
     )
     img = generator.generate(
-        f"{en_text} artstation, royo, artgerm, wlop",
+        f"{en_text} {extra}",
         num_steps=30,
         unconditional_guidance_scale=7.5,
         temperature=1,
         batch_size=1,
     )
     pil_img = Image.fromarray(img[0])
-    filename = f"./image/{h}.png"
+    filename = f"./image/{hash}.png"
     pil_img.save(filename)
-    return (os.path.abspath(filename), h)
+    return os.path.abspath(filename)
 
-def do_video(hash, image, audio):
+def do_video(hash, audio, image):
     os.system(f"ffmpeg -y -loop 1 -i {image} -i {audio} -c:v libx264 -tune stillimage -c:a aac -b:a 192k -pix_fmt yuv420p -shortest ./video/{hash}.mp4")
 
 def post_to_mastodon(c_row, s_row, audio, image):
@@ -95,19 +92,31 @@ def post_to_mastodon(c_row, s_row, audio, image):
 def main():
     database = r"zh.db"
     conn = create_connection(database)
+
+    # Pick a random artist
+    # f = open("data/artists.txt", "r")
+    # artists = f.readlines()
+    # f.close()
+
+    artists = []
+    with open("data/artists.txt") as f:
+        artists = f.read().splitlines() 
+    rand = round(len(artists) * random.random())
+    print(artists[rand])
+    
     with conn:
         c_rows = select_char(conn)
         s_rows = select_example_sentences(conn, c_rows[0])
         
-        # print(c_rows[0], flush=True)
-        # print(s_rows[0][2], flush=True)
+        hash_object = hashlib.md5( str(c_rows[0][0]).encode('utf-8') )
+        h = hash_object.hexdigest()
+        print("Study word: " + c_rows[0][0] + " hash: " + h)
 
-        audio = do_tts(s_rows[0][0])
-        print(f"----> {s_rows[0][0]} {audio[0]}", flush=True)
-        image = do_image(s_rows[0][2])
-        print(f"----> {s_rows[0][2]} {image[0]}", flush=True)
+        audio = do_tts(h, s_rows[0][0])
+        image = do_image(h, s_rows[0][2], c_rows[0][4] + f" {artists[rand]} artstation")
         
-        do_video(audio[1], image[0], audio[0])
+        do_video(h, audio, image)
+        print(f"./video/{h}.mp4", audio, image)
 
         # post_to_mastodon(c_rows, s_rows, audio, image)
 
