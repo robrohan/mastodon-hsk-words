@@ -78,7 +78,7 @@ def do_video(hash, audio, image, caption):
     # font = "Arial.ttf"
 
     ffmpeg = f"ffmpeg -y -loop 1 -i {image} -i {audio} "
-    ffmpeg += f""" -filter_complex "[0:v]pad=iw:ih+50:0:50:color=white, drawtext=text='{caption}':fix_bounds=true:fontfile={font}:fontsize=12:fontcolor=black:x=(w-tw)/2:y=(50-th)/2" """
+    ffmpeg += f""" -filter_complex "[0:v]pad=iw:ih+50:0:50:color=white, drawtext=text='{caption}':fix_bounds=true:fontfile={font}:fontsize=16:fontcolor=black:x=(w-tw)/2:y=(50-th)/2" """
     ffmpeg += f" -c:v libx264 -tune stillimage -c:a aac -b:a 192k -pix_fmt yuv420p -shortest ./video/{hash}.mp4"
 
     os.system(ffmpeg)
