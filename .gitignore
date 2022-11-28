@@ -1,4 +1,7 @@
+.DS_Store
+*~
 .env
 audio/
 image/
 video/
+data/sample_sentences.txt

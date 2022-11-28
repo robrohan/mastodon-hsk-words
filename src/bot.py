@@ -15,7 +15,7 @@ load_dotenv()
 config = dotenv_values(".env")
 
 def download_models():
-    StableDiffusion( 
+    StableDiffusion(
         img_height=512,
         img_width=512,
         jit_compile=False,
@@ -39,9 +39,9 @@ def select_char(conn):
 def select_example_sentences(conn, zh_char):
     cur = conn.cursor()
     cur.execute(f"""
-        SELECT Characters, Pinyin, Meaning 
-        FROM sentences 
-        WHERE Characters LIKE '%{zh_char[0]}%' 
+        SELECT Characters, Meaning
+        FROM sentences
+        WHERE Characters LIKE '%{zh_char[0]}%'
         ORDER BY RANDOM()
         LIMIT 1
     """)
@@ -54,21 +54,20 @@ def do_tts(hash, zh_text):
         # tts = zhtts.TTS(text2mel_name="FASTSPEECH2")
     tts = zhtts.TTS(text2mel_name="TACOTRON")
     tts.text2wav(zh_text, os.path.abspath(f))
-    tts.frontend(zh_text)
-    tts.synthesis(zh_text)
-
+    # tts.frontend(zh_text)
+    # tts.synthesis(zh_text)
     return os.path.abspath(f)
 
-def do_image(hash, en_text, extra):
-    print(f"prompt ------> {en_text} {extra}")
+def do_image(hash, prompt):
+    print(f"prompt ------> {prompt}")
 
-    generator = StableDiffusion( 
+    generator = StableDiffusion(
         img_height=384,
         img_width=384,
         jit_compile=True
     )
     img = generator.generate(
-        f"{en_text} {extra}",
+        f"{prompt}",
         num_steps=35,
         unconditional_guidance_scale=7.5,
         temperature=1,
@@ -125,10 +124,24 @@ def post_video_to_mastodon(c_row, video):
         language="zh",
     )
 
+def rand_record(file):
+    lines = []
+    with open(f"data/{file}") as f:
+        lines = f.read().splitlines()
+    rand = round(len(lines) * random.random())
+    return lines[rand]
+
+def do_madlib():
+    artist = rand_record("artists.txt")
+    occupation = rand_record("occupation.txt")
+    place = rand_record("place.txt")
+    genre = rand_record("genre.txt")
+
+    return f"{place} {genre} {occupation} {artist}"
+
 def main():
     database = r"zh.db"
     conn = create_connection(database)
-    # print(len(sys.argv))
 
     with conn:
         c_rows = select_char(conn)
@@ -140,27 +153,19 @@ def main():
             exit()
 
         if len(sys.argv) == 2 and sys.argv[1] == "video":
-            # Pick a random artist
-            artists = []
-            with open("data/artists.txt") as f:
-                artists = f.read().splitlines() 
-            rand = round(len(artists) * random.random())
-            print(artists[rand])
-
             s_rows = select_example_sentences(conn, c_rows[0])
-            
+
             hash_object = hashlib.md5( str(c_rows[0][0]).encode('utf-8') )
             h = hash_object.hexdigest()
             print("Study word: " + c_rows[0][0] + " hash: " + h)
-            print("Sentence: " + s_rows[0][0] + " En: " + s_rows[0][2])
+            print("Sentence: " + s_rows[0][0] + " En: " + s_rows[0][1])
 
             audio = do_tts(h, s_rows[0][0])
-            image = do_image(h, s_rows[0][2], c_rows[0][4] + f" {artists[rand]}, unreal engine, artstation")
-            
+            prompt = f"{s_rows[0][1]}; {c_rows[0][4]}; {do_madlib()}, unreal engine, artstation"
+            image = do_image(h, prompt)
             caption = s_rows[0][0]
             video = do_video(h, audio, image, caption)
             print(video, audio, image)
-
 
         if len(sys.argv) == 2 and sys.argv[1] == "video":
             post_video_to_mastodon(c_rows[0], video)

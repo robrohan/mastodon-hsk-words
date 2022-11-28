@@ -1,0 +1,111 @@
+Animal keeper
+Architect
+Asparagus harvester
+Astronaut
+Auctioneer
+Baker
+Barkeeper
+Beautician
+Bee-keeper
+Bicycle messenger
+Biologist
+Bookseller
+Bouncer
+Boxer
+Bricklayer
+Butcher
+Call-centre agent
+Cameraman / Camerawoman
+Captain
+Carpenter
+Carpenter
+Cemetary gardner
+Chancellor
+Chef
+Chemist
+Chimney sweep
+Chorister
+Circus artist/Equilibrist
+Coder
+Comedy author
+Composer
+Computer scientist
+Concrete worker
+Conductor
+Conductor
+Creative director
+Dentist
+Diet counsellor
+Director
+Disc jockey
+Doorkeeper
+dressmaker
+Driving instructor
+Educator
+Electrician
+Energy consultant
+Estate agent
+Event manager
+Firefighter
+Florist
+Gardener
+geriatric nurse
+Goldsmith
+Headhunter
+High school teacher
+Housewife/Househusband
+Human resources manager
+Hunter
+Ice-cream vendor
+Interior designer
+Interpreter
+Jazz musician
+Journalist
+Judge
+Lawyer
+Legal expert
+Librarian
+Lifeguard
+Mail carrier
+Market researcher
+Marriage counsellor
+Masseur
+Meteorologist
+Minister of defense
+Model
+Mountaineer
+Music teacher
+Nurse
+Obstetrician
+Optician/Optometrist
+Painter
+Pathologist
+Pharmacist
+Photographer
+Physician
+Physicist
+Piano maker
+Pilot
+Plumber
+Priest
+Prompter
+Psephologist
+Puppeteer
+Roofer
+Salesperson
+Santa
+Shepherd
+Shipbuilder
+Soccer referee
+Speechwriter
+Sports instructor
+Stonemason
+Stuntman
+Swimming pool attendant
+Taxi driver
+Tour guide
+Track welder
+Train driver
+Veterinarian
+Violin-maker
+Watchmaker

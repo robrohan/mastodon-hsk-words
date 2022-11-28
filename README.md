@@ -21,3 +21,14 @@ Requires tensorflow and stable diffusion (inference can done on the CPU)
 ## Video
 
 Requires the above, and FFMPG to be installed
+
+## Database
+
+```
+cat data/simple_hsk1_sentences.txt data/simple_hsk2_sentences.txt data/simple_hsk3_sentences.txt > data/sample_sentences.txt
+```
+
+```
+sqlite> .mode tabs
+sqlite> .import ./data/sample_sentences.txt sentences
+```

@@ -1,0 +1,285 @@
+Characters	Meaning
+我爱你	I love you
+你爱我	You love me
+他爱她	He loves her
+十八	18
+八十四	84
+这是我爸爸	This is my dad
+爸爸在哪儿?	Where is dad?
+我住在北京	I live in Beijing
+我要一杯茶	I want one cup of tea
+我杯子里的茶很好喝	The tea in my cup is delicious
+你喜欢这本书吗?	Do you like this book?
+我喜欢这本书	I like this book
+我不喜欢你	I don't like you
+我不买这个	I don't buy this
+她不漂亮	She is not pretty
+谢谢	Thanks
+不客气	You're welcome
+小姐，点菜	Miss, we want to order
+这个菜很好吃	This dish is delicious
+这个菜多少钱?	How much is this dish?
+中国人很喜欢喝茶	Chinese people really like drinking tea
+我很喜欢吃东西	I really like eating
+我是坐出租车去医院的	I took a taxi to the hospital
+我买的衣服太大了	The clothes I bought are too big
+我在打电话	I'm calling somebody
+这是我的	This is mine
+你几点来？	When do you come (at what time)?
+我朋友的电脑很好	My friend's computer is really good
+我爸爸在看电视	My dad is watching TV
+我和我的朋友们今天去看电影	I and my friends are going to watch a film today
+你今天想去看电影吗?	Do you want to go watch a film today?
+她很喜欢去买东西	She likes to go shopping
+我买了很多东西	I bought a lot of things
+我们都喜欢她	All of us like her
+我在北京大学读书	I'm studying at Beijing university
+我在读书	I'm reading/I'm studying
+我在看书	I'm reading a book
+对不起，你是谁？	I'm sorry, who are you?
+我买了很多	I bought a lot
+我买了不多	I didn't buy too many (but more than a few)
+这本书多少钱?	How much is this book?
+你买了多少?	How many/much did you buy?
+十二	12
+二十	20
+二十一	21
+二十二	22
+这是我儿子	This is my son
+这饭店的菜很好吃	The food in this restaurant is great
+我坐飞机回家	I'm going home by plane
+30分钟	30 minutes
+48分钟	48 minutes
+9点25分钟	9:25
+9点25分	9:25
+12点55分	12:55
+现在2点5分	It's 2:05
+我很高兴	I am very happy/excited
+她爱我，我很高兴	She loves me, I am very happy
+这个很好	This is great
+你的工作是什么?	What's your job?
+你的狗很漂亮	Your dog is gorgeous
+我很喜欢学习汉语	I really like studying Chinese
+我很喜欢学汉语	I really like studying Chinese
+你2月15号有时间吗？	Do you have time on the 15th of February?
+这是我很好的朋友	This is my very good friend
+这是我的好朋友	This is my good friend
+这是我好朋友	This is my good friend
+她好漂亮	She is very beautiful
+我好高兴	I am very happy
+你和她我都喜欢	I like both of you (you and her)
+我很喜欢喝东西	I like drinking things
+我很喜欢他	I like him a lot
+在医院的后面有个我很喜欢的小店	At the back of the hospital is a small shop I really like
+我想回家	I want to go home
+我明天回家	I'll go home tomorrow
+我会做饭	I can cook
+我不会做饭	I can't cook
+你买了几本书?	How many books did you buy?
+我买了几本书	I bought several books
+你家有几个人?	How man people are there in your family?
+我的家有三个人，爸爸，妈妈和我	There are 3 people in my family, my dad, my mum and me
+这个家有四个人，爸爸，妈妈，儿子和女儿	This family consists of 4 people, dad, mum, son and daughter
+我叫...	My name is …
+你好，我叫...	Hello, my name is ...
+我今天去	I'll go today
+我今天去了	I went today
+十九	19
+九十九	99
+你要一杯水吗?	Do you want a cup of water?
+我要一杯开水	I want a cup of drinking water
+我在看你	I'm looking at you
+我在这儿，你能看见我吗?	I'm here, can you see me?
+我看见你了	I spotted you!
+我要一块	I want one piece
+这本书34块	This book costs 34 RMB
+你来我这儿	Come to me
+你来吗?	Are you coming?
+我来了	I'm here/I arrived
+我们的汉语老师很好	Our Mandarin teacher is great
+我好了	I'm fine (now)
+这里的天气很冷	It's quite cold here
+这里的天气很好	The weather here is very good
+那里的天气很好	The weather there is very good
+十六	16
+六十六	66
+你喜欢买衣服	You like buying clothes
+你喜欢买衣服吗?	Do you like buying clothes?
+你爱她吗?	Do you love her?
+这是我妈妈	This is my mum
+我买了衣服	I bought clothes
+我买衣服了	I bought clothes
+我买的衣服都很漂亮	The clothes I bought look great
+中国人都喜欢吃猫和狗吗?	Do all Chinese like eating cats and dogs?
+对不起，我不认识你	Sorry, I don't know you
+没关系，我叫Mike，我是你朋友的朋友	Doesn't matter, I'm Mike, I'm your friend's friend
+我没有衣服	I don't have clothes
+我没有衣服了	I ran out of clothes
+我要一个米饭	I want a bowl of rice
+我明天去	I'll go tomorrow
+你叫什么名字?	What's your name?
+我很喜欢那个	I like that a lot
+我喜欢这本书	I like this book
+你喜欢哪本书	Which book do you like?
+这本书	This book
+他喜欢这些书	He likes those books
+他喜欢哪些书	Which books does he like?
+这些书	Those books
+你在哪儿？	Where are you?
+你喜欢买衣服吗?	Do you like buying clothes?
+我很喜欢，你呢?	I like it a lot; what about you?
+我不太喜欢	I don't like it that much
+我不能做饭	I'm not able to cook (today/now)
+2012年8月3日	August 3rd, 2012
+1978年3月23日	March 23rd, 1978
+2012年8月3日上午10点10分	August 3rd, 2012 10:10 a.m.
+一年	1 year
+四年	4 years
+你的女儿很漂亮	Your daughter is very beautiful
+这是我的朋友	This is my friend
+她很漂亮	She is very pretty
+你们都很漂亮	You're all looking great
+她很漂亮，我很喜欢她	She is really pretty, I like her a lot
+我很喜欢吃苹果	I really like eating apples
+这个苹果很好吃	This apple is really good
+十七	17
+七十二	72
+我有钱	I have money/I am rich
+我没有钱	I don't have money/I am poor
+在医院的前面有个很小的商店	There's a small shop in front of the hospital
+我请你吃饭	I invite you for lunch/dinner
+我来请	I pay
+我去你那儿	I'm coming to you
+你去哪儿?	Where are you going?
+我去北京	I go to Beijing
+我去买衣服	I go shopping for clothes
+这里的天气很热	It's quite hot here
+这个人很好	This person is very nice
+这些人很好	Those people are very nice
+这个人是我的朋友	This person is my friend
+那个人很漂亮	That person is very beautiful
+对不起，我不认识他	Sorry, I don't know him
+十三	13
+三十二	32
+三本书	3 books
+我上去	I'm coming up
+你上来吗?	Are you coming up?
+这个商店很大	This shop is quite big
+上午9点15分	9:15 a.m.
+我买了很少	I bought just a few
+我买了不少	I bought quite a few
+我爱你	I love you
+我爱谁?	Who do I love?
+你	you
+我爱你	I love you
+谁爱你?	Who loves you?
+我	I
+你喜欢买衣服	You like buying clothes
+你喜欢什么?	What do you like?
+买衣服	Buying clothes
+我有十个朋友	I have 10 friends
+这是我	This is me
+什么时候	when
+你什么时候来?	When do you come?
+你喜欢什么书？	Which kind of books do you like?
+我要一杯水	I want a glass of water
+你喜欢什么水果?	Which fruits do you like?
+我去睡觉	I go to bed
+你说什么？	What did you say?
+我说你很漂亮	I said you are very beautiful
+十四	14
+四十一	41
+四个人	4 people
+你几岁?	How old are you?
+你多大?	How old are you?
+我24岁	I'm 24 years old
+他今年55岁	He's 55 years old this year
+太好了!	Great!
+天气很好	The weather is great
+你好好听你爸的话	Listen to your dad
+我的同学都很喜欢我	My classmates do all like me a lot
+喂，你好	Hello (when answering the phone)
+十五	15
+五十四	54
+我喜欢你	I like you
+你喜欢我	You like me
+你下来吗?	Are you coming down?
+我下去	I'm coming down
+下午3点35分	3:35 p.m.
+你今天想去看电影吗?	Do you want to go watch a film today?
+今天下雨了，我不想去	It's raining today, I don't really want to go
+明天会下雨	It might be raining tomorrow
+钱先生，你好	Hello Mr. Qian
+现在几点?	What's the time?
+我很想你	I miss you
+我很想我的家	I miss my family/I miss home
+我在想	I'm thinking
+我在想我要吃什么	I'm thinking what I should eat
+你想一想	Think about it
+我想吃东西	I want to eat something
+我买的衣服太小了	The clothes I bought are too small
+小姐，你好	Hello, Miss!
+她是个小姐	She's a prostitute
+老师在写汉字	The teacher is writing characters
+我很喜欢这些	I really like these
+我很喜欢那些	I like those
+谢谢你	Thank you!
+星期一	Monday
+星期二	Tuesday
+星期三	Wednesday
+星期四	Thursday
+星期五	Friday
+星期六	Saturday
+星期日	Sunday
+星期天	Sunday
+今天星期六	Today is Saturday (informal)
+今日星期六	Today is Saturday (formal)
+明天星期天	Tomorrow is Sunday (informal)
+明日星期日	Tomorrow is Sunday (formal)
+一个星期	1 week
+四个星期	4 weeks
+我是很好的学生	I'm a good student
+我在北京大学学习	I'm studying at Beijing university
+我在学习	I'm studying
+这是我的学校	This is my school
+十一	11
+一个朋友	a friend
+这里有点儿冷	It's a little bit cold here
+这些衣服很漂亮	Those clothes look great
+我是医生	I'm a doctor
+我在医院工作	I work at the hospital
+这个椅子太小了	This seat is too small
+我有衣服	I have clothes
+一月	January
+二月	February
+三月	March
+四月	April
+五月	May
+六月	June
+七月	July
+八月	August
+九月	September
+十月	October
+十一月	November
+十二月	December
+一个月	1 month
+四个月	4 months
+在那儿天气怎么样?	How's the weather there?
+在这里天气很好	The weather here is quite good
+明天见	See you tomorrow
+再见	See you
+这本书怎么买?	How can you buy this book?
+你怎么了?	How are you? What's wrong?
+这本书怎么样?	How's that book? Do you like this book?
+你怎么样?	How are you?
+我很喜欢这个	I really like this
+我住在中国	I live in China
+中午11点50分	11:50 a.m.
+你住在哪儿?	Where do you live?
+你住在哪里?	Where do you live?
+桌子上的菜都很好吃	The dishes on the table do all taste great
+汉语有很多字	Mandarin consists of many characters
+我喜欢做饭	I like cooking
+请坐	Please take a seat
+坐一下	Take a seat
+我昨天去了	I went yesterday

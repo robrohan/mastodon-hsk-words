@@ -1,0 +1,109 @@
+Observation tower
+Farmhouse
+Shop
+High-rise building
+Chicken coop
+Barracks
+Church / Chapel / Cathedral
+Monastery
+Town hall
+Skyscraper
+Stadium
+Pyramid
+Prison
+Ice station
+Eiffel tower
+Forester's house
+Lawyer's chambers
+Hardware store
+Brothel
+Office
+Factory (assembly line)
+Hairdresser
+open-plan office
+Harbor
+Internet cafe
+Cantine
+Orthodontist
+Kindergarten
+Market
+open air market
+Massage pactice
+trade fair stand
+Gym
+Nail salon
+Butcher's shop
+School
+Tanning salon
+Tax advisor
+Supermarket
+Laundromat
+Ad agency
+Sausage stand
+Dentist
+wig store
+Argentina
+Australia
+Belgium
+Germany
+France
+Italy
+Japan
+Mexico
+Netherlands
+Austria
+Russia
+Switzerland
+Spain
+USA
+Berlin
+Springfield
+Munich
+Paris
+New York
+Glacier
+Forest
+Beach
+Meadow
+Desert
+Park
+Rainforest
+Oasis
+Savannah
+Waterfall
+Library
+School
+Cinema
+Theatre
+Museum
+Children's room.
+Bedroom
+Living room
+Kitchen
+Garage
+Music room
+Library
+Guest room
+Basement, cellar
+Balcony
+Greenhouse
+Moon, planets
+Heaven
+Hell
+Paradise
+Spaceship
+Space station
+Time machine
+Aircraft
+Caravan, campervan
+Motorcycle
+Train
+Zeppelin
+Tram
+Bus
+Under the bridge
+On the bridge
+Crematorium
+Cemetery
+Zoo
+Circus
