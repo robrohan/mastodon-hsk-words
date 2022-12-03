@@ -32,7 +32,13 @@ def create_connection(db_file):
 
 def select_char(conn):
     cur = conn.cursor()
-    cur.execute("SELECT * FROM hsk1 ORDER BY RANDOM() LIMIT 1")
+    cur.execute("""
+        SELECT * 
+        FROM hskall 
+        WHERE hsk in (1,2) 
+        ORDER BY RANDOM() 
+        LIMIT 1
+    """)
     rows = cur.fetchall()
     return rows
 
