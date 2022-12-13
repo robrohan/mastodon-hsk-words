@@ -35,7 +35,7 @@ def select_char(conn):
     cur.execute("""
         SELECT * 
         FROM hskall 
-        WHERE hsk in (1,2) 
+        WHERE hsk in (1,2,3) 
         ORDER BY RANDOM() 
         LIMIT 1
     """)
@@ -56,12 +56,8 @@ def select_example_sentences(conn, zh_char):
 
 def do_tts(hash, zh_text):
     f = f"./audio/{hash}.wav"
-    # if  not os.path.exists(os.path.abspath(f)):
-        # tts = zhtts.TTS(text2mel_name="FASTSPEECH2")
     tts = zhtts.TTS(text2mel_name="TACOTRON")
     tts.text2wav(zh_text, os.path.abspath(f))
-    # tts.frontend(zh_text)
-    # tts.synthesis(zh_text)
     return os.path.abspath(f)
 
 def do_image(hash, prompt):
@@ -74,8 +70,8 @@ def do_image(hash, prompt):
     )
     img = generator.generate(
         f"{prompt}",
-        num_steps=35,
-        unconditional_guidance_scale=7.5,
+        num_steps=45,
+        unconditional_guidance_scale=8.5,
         temperature=1,
         batch_size=1,
     )
@@ -86,7 +82,6 @@ def do_image(hash, prompt):
 
 def do_video(hash, audio, image, caption):
     font = os.path.abspath("./data/NotoSansSC-Regular.otf")
-    # font = "Arial.ttf"
 
     ffmpeg = f"ffmpeg -y -loop 1 -i {image} -i {audio} "
     ffmpeg += f""" -filter_complex "[0:v]pad=iw:ih+50:0:50:color=white, drawtext=text='{caption}':fix_bounds=true:fontfile={font}:fontsize=16:fontcolor=black:x=(w-tw)/2:y=(50-th)/2" """
@@ -104,7 +99,7 @@ def post_to_mastodon(c_row):
     # mastodon.toot(
     mastodon.status_post(
         spoiler_text=c_row[0],
-        status=c_row[3] + " -- " + c_row[4] + ' #hsk #mandarin #chinese #study',
+        status=c_row[3] + " -- " + c_row[4] + ' #hsk' + c_row[5] + ' #hsk #mandarin #chinese #study',
         language="zh"
     )
 
