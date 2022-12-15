@@ -99,7 +99,7 @@ def post_to_mastodon(c_row):
     # mastodon.toot(
     mastodon.status_post(
         spoiler_text=c_row[0],
-        status=c_row[3] + " -- " + c_row[4] + ' #hsk' + c_row[5] + ' #hsk #mandarin #chinese #study',
+        status=c_row[3] + " -- " + c_row[4] + ' #hsk' + str(c_row[5]) + ' #hsk #mandarin #chinese #study',
         language="zh"
     )
 
